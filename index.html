@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart URL Safety Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background-gradient"></div>
+    <div class="grid-pattern"></div>
+    <div class="cyber-lines"></div>
+    <div class="hexagon-pattern"></div>
+    <p style="background-image: url('https://humanfocus.co.uk/wp-content/uploads/Types-of-Cyber-Attack.jpg');"></p>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo" onclick="showPage('home')">
+                <div class="logo-icon">🛡️</div>
+                <div class="logo-text">
+                    <h1>URL Safety Analyzer</h1>
+                    <p>Cyber Threat Protection</p>
+                </div>
+            </div>
+            <nav class="desktop-nav">
+                <button onclick="showPage('home')" class="nav-btn active" data-page="home">
+                    <span>🛡️</span> Analyzer
+                </button>
+                <button onclick="showPage('about')" class="nav-btn" data-page="about">
+                    <span>ℹ️</span> About
+                </button>
+                <button onclick="showPage('help')" class="nav-btn" data-page="help">
+                    <span>❓</span> Help
+                </button>
+                <button onclick="showPage('feedback')" class="nav-btn" data-page="feedback">
+                    <span>💬</span> Feedback
+                </button>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <button onclick="showPage('home'); toggleMobileMenu()">🛡️ Analyzer</button>
+            <button onclick="showPage('about'); toggleMobileMenu()">ℹ️ About</button>
+            <button onclick="showPage('help'); toggleMobileMenu()">❓ Help</button>
+            <button onclick="showPage('feedback'); toggleMobileMenu()">💬 Feedback</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="analyzer-section">
+                <div class="analyzer-header">
+                    <h2>🛡️ Smart URL Safety Analyzer</h2>
+                    <p>Enter a URL to check its safety rating and threat level</p>
+                </div>
+
+                <div class="url-input-section">
+                    <input type="text" id="urlInput" placeholder="Enter URL (e.g., https://example.com)" 
+                           onkeypress="if(event.key==='Enter') analyzeURL()">
+                    <button onclick="analyzeURL()" id="analyzeBtn">
+                        <span>🔍</span> Analyze
+                    </button>
+                </div>
+
+                <div id="results" class="results hidden"></div>
+            </div>
+            <p style="background-image: url('https://humanfocus.co.uk/wp-content/uploads/Types-of-Cyber-Attack.jpg');"></p>
+
+            <div class="globe-section">
+                <h2>🌐 Live Cyber Threat Monitor</h2>
+                <div class="globe-container">
+                    <div class="globe" id="globe">
+                        <div class="globe-sphere"></div>
+                    </div>
+                    <div class="threat-feed">
+                        <h3><span class="live-dot"></span> Live Threats</h3>
+                        <div id="threatList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="page-header">
+                <h2>🛡️ About Our Project</h2>
+                <p>Protecting users from online threats through intelligent URL analysis</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Our Mission</h3>
+                <p>The Smart URL Safety Analyzer is designed to protect internet users from malicious websites, phishing attempts, and cyber threats. Using advanced algorithms and real-time threat intelligence, we provide instant safety ratings for any URL, helping you make informed decisions about your online security.</p>
+                <p>Our platform monitors global cyber threats in real-time, displaying active attacks on an interactive globe visualization. This helps raise awareness about the constant evolution of cyber threats and the importance of online security.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Key Features</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-emoji">⚡</div>
+                        <h4>Real-time Analysis</h4>
+                        <p>Instant URL safety verification with comprehensive threat detection</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-emoji">⭐</div>
+                        <h4>Star Rating System</h4>
+                        <p>Easy-to-understand safety scores from 1 to 5 stars</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-emoji">🌐</div>
+                        <h4>Live Threat Monitor</h4>
+                        <p>Interactive globe showing cyber attacks as they happen</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-emoji">📊</div>
+                        <h4>Detailed Reports</h4>
+                        <p>In-depth threat analysis with actionable recommendations</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-emoji">🎨</div>
+                        <h4>Color-Coded Alerts</h4>
+                        <p>Red for harmful, yellow for neutral, green for safe URLs</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-emoji">🔒</div>
+                        <h4>Global Protection</h4>
+                        <p>Monitoring threats from around the world 24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>👥 Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">LA</div>
+                        <h4>Lauraib Alam</h4>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">ZK</div>
+                        <h4>Zaha Kashif</h4>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">M</div>
+                        <h4>Mahnoor</h4>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">AG</div>
+                        <h4>Adeeba Gul</h4>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">ZS</div>
+                        <h4>Zainab Sajjad</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Page -->
+        <div id="help" class="page">
+            <div class="page-header">
+                <h2>❓ Help Center</h2>
+                <p>Everything you need to know about using the Smart URL Safety Analyzer</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Quick Start Guide</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">🔍</div>
+                        <div class="step-content">
+                            <h4>Step 1: Enter URL</h4>
+                            <p>Paste or type the URL you want to analyze into the search box on the home page.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🛡️</div>
+                        <div class="step-content">
+                            <h4>Step 2: Analyze</h4>
+                            <p>Click the "Analyze" button or press Enter. The system will process the URL in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">⭐</div>
+                        <div class="step-content">
+                            <h4>Step 3: Review Results</h4>
+                            <p>Check the star rating, color code, and detailed threat analysis. Read the recommendations carefully.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🌐</div>
+                        <div class="step-content">
+                            <h4>Step 4: Monitor Threats</h4>
+                            <p>View the live threat monitor below to see global cyber attacks happening in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Understanding Safety Ratings</h3>
+                <div class="rating-info harmful">
+                    <h4>🔴 Harmful (1-2 Stars)</h4>
+                    <p>Red glowing stars indicate known malicious sites, phishing attempts, or severe security risks. <strong>Do not visit these sites.</strong> They may steal your data, install malware, or compromise your device.</p>
+                </div>
+                <div class="rating-info neutral">
+                    <h4>🟡 Neutral (3 Stars)</h4>
+                    <p>Yellow stars indicate unverified or suspicious sites with limited reputation data. <strong>Exercise caution.</strong> Avoid entering personal information or downloading files from these sites.</p>
+                </div>
+                <div class="rating-info safe">
+                    <h4>🟢 Safe (4-5 Stars)</h4>
+                    <p>Green stars indicate trusted, verified sites with valid security certificates and no known threats. These sites are <strong>generally safe to visit</strong>, but always remain vigilant about what information you share online.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Security Best Practices</h3>
+                <ul class="best-practices">
+                    <li>Always verify the URL before clicking, especially in emails or messages</li>
+                    <li>Look for HTTPS and a padlock icon in your browser's address bar</li>
+                    <li>Never enter sensitive information on sites rated as harmful or neutral</li>
+                    <li>Keep your browser and security software up to date</li>
+                    <li>Use strong, unique passwords for different websites</li>
+                    <li>Report suspicious URLs to your IT department or security team</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feedback Page -->
+        <div id="feedback" class="page">
+            <div class="page-header">
+                <h2>💬 Feedback</h2>
+                <p>We value your feedback! Help us improve the Smart URL Safety Analyzer</p>
+            </div>
+
+            <div class="content-card">
+                <form id="feedbackForm" onsubmit="submitFeedback(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name <span class="required">*</span></label>
+                            <input type="text" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" required placeholder="your.email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rate Your Experience <span class="required">*</span></label>
+                        <div class="star-rating">
+                            <span class="star" onclick="setRating(1)">⭐</span>
+                            <span class="star" onclick="setRating(2)">⭐</span>
+                            <span class="star" onclick="setRating(3)">⭐</span>
+                            <span class="star" onclick="setRating(4)">⭐</span>
+                            <span class="star" onclick="setRating(5)">⭐</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Feedback Category <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select a category</option>
+                            <option value="general">General Feedback</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="accuracy">URL Analysis Accuracy</option>
+                            <option value="ui">User Interface</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Message <span class="required">*</span></label>
+                        <textarea required rows="6" placeholder="Share your thoughts, suggestions, or report any issues..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>📤</span> Submit Feedback
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message hidden">
+                    <div class="success-icon">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>Your feedback has been submitted successfully. We appreciate your input!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>© 2024 Smart URL Safety Analyzer. Protecting users from cyber threats.</p>
+                    <p class="team-credits">Built by Lauraib Alam, Zaha Kashif, Mahnoor, Adeeba Gul & Zainab Sajjad</p>
+                </div>
+                <div class="footer-links">
+                    <button onclick="showPage('about')">About</button>
+                    <button onclick="showPage('help')">Help</button>
+                    <button onclick="showPage('feedback')">Feedback</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
